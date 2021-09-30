@@ -1,6 +1,6 @@
-# My first project Vuejs
+# Wesh
 
-Realized by following this [tutorial](https://www.youtube.com/watch?v=siy9ETx68NU) on Youtube by Fromscratch.  
+My first project with vues.js, realized by following this [tutorial](https://www.youtube.com/watch?v=siy9ETx68NU) on Youtube by Fromscratch.  
 See also this link to discover vue.js : https://www.youtube.com/watch?v=D3oivlcoEvw&t=0s
 
 📅 started in August 2021  
