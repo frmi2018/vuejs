@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-18</title>
+    <!-- Passer des données à un composant avec des slots -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Texte par défaut s'affiche -->
+      <test></test>
+      <!-- Texte par défaut est remplacé -->
+      <test>Texte de remplacement</test>
+    </div>
+    <script>
+      const app = Vue.createApp({});
+      app.component("test", {
+        template: "<div>Texte par défaut</div>",
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

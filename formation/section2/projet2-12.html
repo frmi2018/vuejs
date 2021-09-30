@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-12</title>
+    <!-- Passer des données de l'application aux composants enfants -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <taille v-bind:mess="message"></taille>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Message du parent au composant taille",
+          };
+        },
+      });
+      app.component("taille", {
+        props: ["mess"],
+        template: "<div>{{mess}}</div>",
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

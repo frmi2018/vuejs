@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-25</title>
+    <!-- Suffixes stop et prevent de Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Gestion touches souris -->
+      <!-- bloquer affichage menu clique droit -->
+      <img
+        src="https://www.santevet.com/upload/admin/images/article/Chat%202/chaton_seul/chaton%20Fotolia.com.jpg"
+        v-bind:width="largeur"
+        v-on:click.left="handlelargeur(100)"
+        v-on:click.right.prevent.stop="handlelargeur(200)"
+        v-on:click.middle="handlelargeur(300)"
+        alt="image chaton"
+      />
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            largeur: 200,
+          };
+        },
+        methods: {
+          handlelargeur(largeur) {
+            this.largeur = largeur;
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

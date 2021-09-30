@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-22</title>
+    <!-- Les fonctions stopPropagation() et preventDefault() de l'objet $event -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div v-on:keydown="actionParent">
+        <input type="text" v-on:keydown="action($event)" />
+      </div>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        methods: {
+          action(event) {
+            console.log("Evènement traité dans le input");
+            event.preventDefault();
+            event.stopPropagation();
+          },
+          actionParent() {
+            console.log("Evènement traité dans le parent");
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

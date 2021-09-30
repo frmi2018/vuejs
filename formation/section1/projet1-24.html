@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-24</title>
+    <!-- Suffixes stop et prevent de Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div @keydown="actionParent">
+        <input type="text" @keydown.prevent.stop="action($event)" />
+      </div>
+      <button @click.once="action">Cliquez ici</button>
+      <!-- Réagir à la touche enter -->
+      <input type="text" @keyup.enter="action" />
+      //enter, tab, delete, esc, space, up, down, right, left, //page-down,
+      page-up, f1 à f12, ctrl, alt, shift
+    </div>
+    <script>
+      const app = Vue.createApp({
+        methods: {
+          action(ev) {
+            console.log("Evènement traité dans le input");
+            //ev.preventDefault();
+            //ev.stopPropagation();
+          },
+          actionParent() {
+            console.log("Evènement traité dans le parent");
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

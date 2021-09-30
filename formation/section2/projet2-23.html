@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-23</title>
+    <!-- Slots avec portée (scoped slots) -->
+    <!-- Modifier les données du tableau personne à partir de l'enfant -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <employes>
+        <template v-slot="slotProps">
+          <em>{{slotProps.pers.prenom}}</em
+          >&nbsp;{{slotProps.pers.nom.toUpperCase()}}
+        </template>
+      </employes>
+    </div>
+    <script>
+      const app = Vue.createApp({});
+      app.component("employes", {
+        data() {
+          return {
+            personnes: [
+              {
+                prenom: "Jean",
+                nom: "Segur",
+              },
+              {
+                prenom: "Pierre",
+                nom: "Dumanier",
+              },
+            ],
+          };
+        },
+        template: `<div v-for="personne in personnes">
+          <slot :pers="personne"></slot>
+          </div>`,
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

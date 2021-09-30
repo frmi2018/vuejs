@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-17</title>
+    <!--
+       Lifecycle Hooks Create
+       Axios
+       API REST https://randomuser.me/
+       avec component global
+    -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <tous v-bind:personnes="users"></tous>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            users: [],
+          };
+        },
+        created() {
+          axios
+            .get("https://randomuser.me/api/?results=10")
+            .then(function (response) {
+              vm.users = response.data.results;
+            });
+        },
+      });
+
+      app.component("un", {
+        props: ["unePersonne"],
+        template: `
+        <tr>
+          <td colspan="3">
+            <img :src="unePersonne.picture.large" alt="photo d'une personne" />
+          </td>
+          <td>
+            <span>{{unePersonne.name.first}} {{unePersonne.name.last}}</span><br />
+            <span>{{unePersonne.email}}</span><br />
+            <span>{{unePersonne.phone}}</span>
+          </td>
+        </tr>
+        `,
+      });
+
+      app.component("tous", {
+        props: ["personnes"],
+        template: `<table v-for="personne in personnes">
+          <un :unePersonne="personne"></un>
+          </table>`,
+      });
+
+      let vm = app.mount("#app");
+    </script>
+  </body>
+</html>

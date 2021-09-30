@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-19</title>
+    <!-- Passer des données à un composant avec des slots -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <art titre="Titre de l'article"><p>Texte de l'article</p></art>
+    </div>
+    <script>
+      const app = Vue.createApp({});
+      app.component("art", {
+        // slot affiche le contenu entre les balises du composant (innerHTML)
+        template: `<div>
+          <h2>{{titre}}</h2>          
+          <slot></slot>
+          </div>`,
+        props: ["titre"],
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

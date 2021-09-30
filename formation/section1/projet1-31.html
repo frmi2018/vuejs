@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-31</title>
+    <!-- Gestion des évènements clavier -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="texte" @keyup.enter="maj" autofocus />
+      <input type="button" value="Majuscule" @click="maj" />
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            texte: "",
+          };
+        },
+        methods: {
+          maj() {
+            this.texte = this.texte.toUpperCase();
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

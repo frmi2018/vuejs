@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-34</title>
+    <!-- Classes conditionnelles -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .rouge {
+        color: red;
+      }
+      li {
+        list-style-type: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <p>Quels langages de programmation connaissez-vous ?</p>
+      <input type="text" v-model="unLang" />
+      <input type="button" value="valider" @click="ajouter" />
+      <ul>
+        <li v-for="lan in langages">
+          <!-- v-model = valeur checkbox : true/false -->
+          <input type="checkbox" v-model="lan.etatCase" />
+          <!-- Ecrire en rouge si etatCase est true -->
+          <span :class="{rouge:lan.etatCase}">{{lan.lang}}</span>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            unLang: "",
+            langages: [],
+          };
+        },
+        methods: {
+          ajouter() {
+            this.langages.push({ lang: this.unLang, etatCase: false });
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

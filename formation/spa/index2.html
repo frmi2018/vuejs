@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Première application SPA</title>
+    <!-- Navigation Guards sur une route -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@next"></script>
+    <style>
+      /* mettre un style sur le router-link actif */
+      .router-link-active {
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Première application SPA</h1>
+      <ul>
+        <li><router-link to="/">Page 1</router-link></li>
+        <li><router-link to="/page2">Page 2</router-link></li>
+        <li><router-link to="/page3">Page 3</router-link></li>
+      </ul>
+      <router-view> </router-view>
+    </div>
+    <script>
+      const Page1 = {
+        template: "<div>Bienvenue sur la page 1</div>",
+      };
+      const Page2 = {
+        template: "<div>Bienvenue sur la page 2</div>",
+        // Navigation Guards sur un composant
+        beforeRouteEnter: (to, from, next) => {
+          // avant la confirmation de la route
+        },
+        beforeRouteUpdate: (to, from, next) => {
+          // quand la route change
+        },
+        beforeRouteLeave: (to, from, next) => {
+          // juste avant le changement de route
+        },
+      };
+      const Page3 = {
+        template: "<div>Bienvenue sur la page 3</div>",
+      };
+      const router = VueRouter.createRouter({
+        history: VueRouter.createWebHistory(),
+        routes: [
+          {
+            path: "/",
+            component: Page1,
+          },
+          {
+            path: "/page2",
+            component: Page2,
+          },
+          // Navigation Guards sur une route
+          {
+            path: "/page3",
+            component: Page3,
+            beforeEnter: (to, from, next) => {
+              console.log(to, from);
+              next();
+            },
+          },
+        ],
+      });
+      // Navigation Guards global
+      router.beforeEach((to, from, next) => {
+        // afficher d'où l'on vient et où l'on va
+        console.log(to, from);
+        // next(false) bloque la navigation vers la page to
+        next();
+      });
+      const app = Vue.createApp({});
+      app.use(router);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-26</title>
+    <!-- Filtres fonction calculées -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="texte"></input><br />
+      {{capitalize}}<br />
+      <!-- inverse la chaine de caractère -->
+      <!-- cela fonctionne mais à éviter, faire une fonction comme capitalize -->
+      {{inverse}}
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            texte: "",
+          };
+        },
+        computed: {
+          capitalize() {
+            // isoler chaque mot
+            const t = this.texte.split(" ");
+            // pour chaque mot
+            for (let i = 0; i < t.length; i++) {
+              // isoler la première lettre du mot
+              // la mettre en majuscule
+              // ajouter fin du mot
+              t[i] = t[i].slice(0, 1).toUpperCase() + t[i].slice(1);
+            }
+            // concatener les mots séparés par un espace
+            return t.join(" ");
+          },
+          inverse(){
+            // texte est défini dans le slot
+            return this.texte.split('').reverse().join('')
+          }
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

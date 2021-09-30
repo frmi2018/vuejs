@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-36</title>
+    <!-- Animations en JavaScript -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/velocity/2.0.6/velocity.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="anime=!anime">Animer le texte</button>
+      <transition @enter="traitement" :css="false">
+        <h1 v-if="anime">Texte à animer</h1>
+      </transition>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            anime: false,
+          };
+        },
+        methods: {
+          traitement(el, done) {
+            Velocity(
+              el,
+              {
+                transform: ["translateX(20rem)", "translateX(0)"],
+                fontSize: ["4rem", "1rem"],
+                opacity: [1, 0],
+              },
+              {
+                duration: 2000,
+                easing: "ease-out",
+                complete: done,
+              }
+            );
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

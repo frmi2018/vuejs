@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-29</title>
+    <!-- Arguments dynamiques -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <label for="btn1">Simple clic</label>
+      <input type="radio" value="click" checked v-model="choix" id="btn1" />
+      <label for="btn2">Double clic</label>
+      <input type="radio" value="dblclick" v-model="choix" id="btn2" />
+      <p>
+        <img
+          src="https://www.santevet.com/upload/admin/images/article/Chat%202/chaton_seul/chaton%20Fotolia.com.jpg"
+          :width="largeur"
+          @[choix]="handleLargeur"
+          alt="image chaton"
+        />
+      </p>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            choix: "click",
+            largeur: 200,
+          };
+        },
+        methods: {
+          handleLargeur() {
+            this.largeur = this.largeur * 1.1;
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

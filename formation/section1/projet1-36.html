@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-36</title>
+    <!-- Fichier minimum pour lancer application Vue -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      Couleur
+      <select v-model="couleur">
+        <option value="black" selected>Noir</option>
+        <option value="red">Rouge</option>
+        <option value="green">Vert</option>
+        <option value="blue">Bleu</option>
+      </select>
+      Taille
+      <select v-model="taille">
+        <option value="16px" selected>16 px</option>
+        <option value="25px">25 px</option>
+        <option value="40px">40 px</option>
+        <option value="60px">60 px</option>
+      </select>
+      <p :style="{color: couleur, fontSize: taille}">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt
+        quisquam modi ipsum nulla asperiores non dolor obcaecati similique ullam
+        ut sequi sed tenetur, illo neque accusantium ad, eveniet ipsa. Maxime.
+      </p>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            couleur: "black",
+            taille: "16px",
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

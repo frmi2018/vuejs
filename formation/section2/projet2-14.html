@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-14</title>
+    <!-- Custom-events - Envoi de messages au parent par un composant avec $emit -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div>{{total}}</div>
+      <counter @incremente="totalPlusUn"></counter>
+      <counter @incremente="totalPlusUn"></counter>
+      <counter @incremente="totalPlusUn"></counter>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            total: 0,
+          };
+        },
+        methods: {
+          totalPlusUn() {
+            this.total++;
+          },
+        },
+      });
+      app.component("counter", {
+        data() {
+          return {
+            nbClic: 0,
+          };
+        },
+        methods: {
+          plusUn() {
+            this.nbClic++;
+            this.$emit("incremente");
+          },
+        },
+        template: `<button v-on:click="plusUn">{{nbClic}}</button>`,
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

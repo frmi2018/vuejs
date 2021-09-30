@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-30</title>
+    <!-- Animations et transitions en JavaScript (sans vue.js) -->
+    <style>
+      img {
+        transition: opacity 3s ease-in;
+      }
+    </style>
+    <script>
+      function cacherAfficher() {
+        let ima = document.getElementById("chat");
+        let btn = document.getElementById("bouton");
+        if (btn.innerHTML == "Cacher") {
+          btn.innerHTML = "Afficher";
+          ima.setAttribute("style", "opacity: 0");
+        } else {
+          btn.innerHTML = "Cacher";
+          ima.setAttribute("style", "opacity: 1");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button id="bouton" onclick="cacherAfficher();">Cacher</button>
+    <img
+      src="https://www.santevet.com/upload/admin/images/article/Chat%202/chaton_seul/chaton%20Fotolia.com.jpg"
+      id="chat"
+      alt="image chaton"
+    />
+  </body>
+</html>

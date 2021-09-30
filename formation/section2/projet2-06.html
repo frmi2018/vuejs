@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-06</title>
+    <!-- Ajouter des méthodes dans un composant local -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <rnd-loc />
+    </div>
+    <script>
+      // component local
+      const RndLocal = {
+        data() {
+          return {
+            nombre: Math.floor(Math.random() * 100 + 1),
+          };
+        },
+        methods: {
+          nouveau() {
+            this.nombre = Math.floor(Math.random() * 100 + 1);
+          },
+        },
+        template:
+          '<div>{{nombre}}</div>\
+        <button @click="nouveau">Nouveau</button>',
+      };
+
+      const app = Vue.createApp({
+        components: {
+          "rnd-loc": RndLocal,
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

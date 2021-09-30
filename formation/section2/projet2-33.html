@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-33</title>
+    <!-- Transitions entre éléments -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <style>
+    .t-enter-active,
+    .t-leave-active {
+      transition: opacity 2s ease-in;
+    }
+    .t-enter-from,
+    .t-leave-to {
+      opacity: 0;
+    }
+    h1 {
+      position: absolute;
+      margin: 0;
+      top: 5rem;
+      left: 5rem;
+      font-size: 3rem;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <button @click="anime<4 ? anime++ : anime=1">Animer le texte</button>
+      <transition name="t">
+        <h1 v-if="anime==1" key="t1">Texte 1</h1>
+        <h1 v-else-if="anime==2" key="t2">Texte 2</h1>
+        <h1 v-else-if="anime==3" key="t3">Texte 3</h1>
+        <h1 v-else="anime>3" key="t4">Texte 4</h1>
+      </transition>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            anime: 1,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

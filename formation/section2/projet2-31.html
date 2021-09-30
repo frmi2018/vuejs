@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-31</title>
+    <!-- Transitions d'entrée et de sortie simultanées avec VueJS -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .nom-enter-from,
+      .nom-leave-to {
+        opacity: 0;
+      }
+      .nom-enter-active,
+      .nom-leave-active {
+        transition: opacity 3s ease-in;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="visible=!visible">
+        <span v-if="visible">Cacher</span>
+        <span v-else>Afficher</span>
+      </button>
+      <transition name="nom">
+        <!-- Elément à animer -->
+        <div v-if="visible">
+          <img
+            src="https://www.santevet.com/upload/admin/images/article/Chat%202/chaton_seul/chaton%20Fotolia.com.jpg"
+            alt="image chaton"
+          />
+        </div>
+      </transition>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            visible: true,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "numeroCommande": 405560003,
+  "jourCommande": 1,
+  "moisCommande": "mai",
+  "anneeCommande": 2019,
+  "jourExpedition": 3,
+  "moisExpedition": "mai",
+  "anneeExpedition": 2019,
+  "dateLivraison": "jeudi 9 mai 2019",
+  "nbArticle": 4,
+  "suiviCommande": {
+    "step1": true,
+    "step2": true,
+    "step3": false,
+    "step4": false
+  },
+  "user": {
+    "name": "Honniball",
+    "firstName": "Shannon",
+    "phone": "0664262272"
+  },
+  "deliveryDetails": {
+    "name": "point relais",
+    "streetNumber": "57",
+    "streetName": "rue Jean Pierre Timbaud",
+    "city": "Paris",
+    "postcode": "75011",
+    "country": "France",
+    "deliveryMethod": "Livraison standard en point relais"
+  },
+  "fdp": 0,
+  "visa": true,
+  "masterCard": false,
+  "paymentImg": "",
+  "cart": [
+    {
+      "articleId": 1,
+      "articleNom": "matelas",
+      "articlePrix": 750,
+      "articleImg": "beeac3e9af18b37fd100eca05a1e70cb289647e6.jpg",
+      "articleTaille": "160 x 200 cm",
+      "articleQte": 1
+    },
+    {
+      "articleId": 2,
+      "articleNom": "oreiller",
+      "articlePrix": 85,
+      "articleImg": "12ef5c34bc0653e39e10f8f88a166e764947ca0c.jpg",
+      "articleTaille": "60 x 60 cm",
+      "articleQte": 2
+    },
+    {
+      "articleId": 3,
+      "articleNom": "couette",
+      "articlePrix": 210,
+      "articleImg": "ffe63590201accd0a2556fec61148ad80c1ab724.jpg",
+      "articleTaille": "240 x 220 cm",
+      "articleQte": 1
+    }
+  ]
+}

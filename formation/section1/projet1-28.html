@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-28</title>
+    <!-- La directive v-for -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="(elem,index) in elements">
+        {{elem}}
+        <button type="button" @click="supprimer(index)">supprimer</button>
+      </div>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            elements: ["1er", "2e", "3e", "4e"],
+          };
+        },
+        methods: {
+          supprimer(index) {
+            this.elements.splice(index, 1);
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

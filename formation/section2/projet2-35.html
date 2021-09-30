@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-35</title>
+    <!-- Transitions d'entrée et de sortie avec animate.css -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <button @click="anime=!anime">Animer le texte</button>
+      <transition
+        enter-active-class="animate__animated animate__hinge"
+        leave-active-class="animate__animated animate__bounceOutLeft"
+      >
+        <h1 v-if="anime">Texte à animer</h1>
+      </transition>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            anime: false,
+          };
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

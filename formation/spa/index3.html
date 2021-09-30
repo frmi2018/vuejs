@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Première application SPA</title>
+    <!-- Routage – Transition entre les pages -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue-router@next"></script>
+    <style>
+      .router-link-active {
+        background: lightgreen;
+      }
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 2s ease;
+      }
+      .fade-enter-from,
+      .fade-leave-to {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Première application SPA</h1>
+      <ul>
+        <li><router-link to="/">Page 1</router-link></li>
+        <li><router-link to="/page2">Page 2</router-link></li>
+        <li><router-link to="/page3">Page 3</router-link></li>
+      </ul>
+      <router-view v-slot="{Component}">
+        <transition name="fade" mode="out-in">
+          <!-- Provoquer l'affiche lorsque le composant change -->
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </div>
+    <script>
+      const Page1 = {
+        template: "<div>Bienvenue sur la page 1</div>",
+      };
+      const Page2 = {
+        template: "<div>Bienvenue sur la page 2</div>",
+      };
+      const Page3 = {
+        template: "<div>Bienvenue sur la page 3</div>",
+      };
+      const router = VueRouter.createRouter({
+        history: VueRouter.createWebHistory(),
+        routes: [
+          {
+            path: "/",
+            component: Page1,
+          },
+          {
+            path: "/page2",
+            component: Page2,
+          },
+          {
+            path: "/page3",
+            component: Page3,
+          },
+        ],
+      });
+      const app = Vue.createApp({});
+      app.use(router);
+      app.mount("#app");
+    </script>
+  </body>
+</html>

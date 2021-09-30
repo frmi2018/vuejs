@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 2-05</title>
+    <!-- Ajouter des données dans un composant local -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <cpt-loc />
+    </div>
+
+    <script>
+      // component local
+      const CounterLocal = {
+        data() {
+          return {
+            nbClic: 0,
+          };
+        },
+        methods: {
+          plusUn() {
+            this.nbClic++;
+          },
+        },
+        template: `<button v-on:click="plusUn">{{nbClic}}</button>`,
+      };
+
+      const app = Vue.createApp({
+        components: {
+          "cpt-loc": CounterLocal,
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>

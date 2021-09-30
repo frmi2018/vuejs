@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet 1-23</title>
+    <!-- Les fonctions stopPropagation() et preventDefault() de l'objet $event -->
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+        <!-- Empêcher le lien -->
+        <a href="https://www.google.com/" v-on:click="stop($event)">Google</a>
+      </p>
+      <p><a href="https://www.bing.com/">Bing</a></p>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        methods: {
+          stop(event) {
+            console.log("Evènement traité dans le link");
+            event.preventDefault();
+            // event.stopPropagation();
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
