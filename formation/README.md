@@ -1,6 +1,4 @@
-<img src="https://router.vuejs.org/logo.png"  width="100" height=auto>
-
-# Vue.js 3 (sandbox)
+# formation Vue.js
 
 Tests / exercices / tutoriels et projets.
 
@@ -20,7 +18,3 @@ Tests / exercices / tutoriels et projets.
 ### Projets de formation :
 
 [1 Wesh](https://github.com/frmi2018/vuejs-projet1)
-
-### Idées de projets persos :
-
-Clone site tediber
