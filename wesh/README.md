@@ -1,20 +1,13 @@
 # My first project Vuejs
 
-Realized by following a tutorial on Youtube by Fromscratch.
+Realized by following this [tutorial](https://www.youtube.com/watch?v=siy9ETx68NU) on Youtube by Fromscratch.  
+See also this link to discover vue.js : https://www.youtube.com/watch?v=D3oivlcoEvw&t=0s
 
 📅 started in August 2021  
 ✅ finish
 
-## To do that ?
+## Why ?
 
-To learn how to use [Vuejs](https://v3.vuejs.org/).  
-Link to the video tutoriel : https://www.youtube.com/watch?v=siy9ETx68NU  
-To discover vue.js : https://www.youtube.com/watch?v=D3oivlcoEvw&t=0s
+To learn [Vuejs](https://v3.vuejs.org/).  
 
 <img src="https://github.com/frmi2018/portfolio/blob/main/vuejs/wesh/Capture.JPG" width="960" height=auto>
-
-## Get the Code
-
-```
-$ git clone https://github.com/frmi2018/vuejs-projet1.git
-```
