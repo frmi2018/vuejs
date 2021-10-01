@@ -1,5 +1,4 @@
 <img src="https://router.vuejs.org/logo.png"  width="100" height=auto>
-Vues.js projects
 
 <br/>
 <br/>
