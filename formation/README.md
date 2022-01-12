@@ -1,6 +1,6 @@
 # formation Vue.js
 
-Tests / exercices / tutoriels et projets.
+Tests / exercices / tutoriels.
 
 ### Cours :
 
