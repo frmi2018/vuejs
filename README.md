@@ -7,6 +7,5 @@
 
 ## Projets :
 
-formation : exercices disponibles dans la formation : https://www.udemy.com/course/vuejs-3-la-formation-complete-pour-debutants/  
-tediber : test technique réalisé pour un stage  
-wesh : projet réalisé en suivant un tutoriel de fromscratch : https://www.youtube.com/watch?v=siy9ETx68NU
+[<img src="https://github.com/frmi2018/vuejs/blob/main/tediber/desktop.png"  width="240" height=auto>](https://github.com/frmi2018/vuejs/tree/main/tediber) 
+[<img src="https://github.com/frmi2018/vuejs/blob/main/wesh/Capture.JPG"  width="240" height=auto>](https://github.com/frmi2018/vuejs/tree/main/wesh)
